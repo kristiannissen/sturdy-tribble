@@ -5,54 +5,49 @@ import (
 	str "strings"
 )
 
-type Word struct {
-	Chars    string
-	Priority int
-}
-
-var Suffixes []Word
+var Suffixes []string
 
 func init() {
-	Suffixes = []Word{
-		{"hed", 1},
-		{"ethed", 1},
-		{"ered", 1},
-		{"e", 2},
-		{"erede", 1},
-		{"erende", 1},
-		{"ene", 1},
-		{"ende", 1},
-		{"erne", 1},
-		{"ere", 1},
-		{"en", 2},
-		{"heden", 1},
-		{"eren", 1},
-		{"er", 1},
-		{"heder", 1},
-		{"erer", 1},
-		{"heds", 1},
-		{"es", 0},
-		{"endes", 1},
-		{"erendes", 1},
-		{"enes", 1},
-		{"ernes", 1},
-		{"eres", 1},
-		{"ens", 0},
-		{"hedens", 1},
-		{"erens", 1},
-		{"ers", 1},
-		{"ets", 1},
-		{"erets", 1},
-		{"et", 0},
-		{"eret", 1},
-		{"else", 1},
+	Suffixes = []string{
+		"hed",
+		"ethed",
+		"ered",
+		"e",
+		"erede",
+		"erende",
+		"ene",
+		"ende",
+		"erne",
+		"ere",
+		"en",
+		"heden",
+		"eren",
+		"er",
+		"heder",
+		"erer",
+		"heds",
+		"es",
+		"endes",
+		"erendes",
+		"enes",
+		"ernes",
+		"eres",
+		"ens",
+		"hedens",
+		"erens",
+		"ers",
+		"ets",
+		"erets",
+		"et",
+		"eret",
+		"else",
 	}
 	SortSuffixes()
 }
 
 func SortSuffixes() {
 	sort.SliceStable(Suffixes, func(i, j int) bool {
-		return Suffixes[i].Priority < Suffixes[j].Priority
+		return len(Suffixes[i]) > len(Suffixes[j])
 	})
 }
 
@@ -88,8 +83,8 @@ func constant_pairs(word string) string {
 
 func main_suffix(word string) string {
 	for _, s := range Suffixes {
-		if str.HasSuffix(word, s.Chars) {
-			word = str.TrimRight(word, s.Chars)
+		if str.HasSuffix(word, s) {
+			word = str.TrimRight(word, s)
 		}
 	}
 	return word
@@ -98,7 +93,7 @@ func main_suffix(word string) string {
 func other_suffix(word string) string {
 	pairs := make(map[string]string)
 	pairs["els"] = "els"
-    pairs["ig"] = "ig"
+	pairs["ig"] = "ig"
 
 	for k, v := range pairs {
 		if str.HasSuffix(word, k) {
