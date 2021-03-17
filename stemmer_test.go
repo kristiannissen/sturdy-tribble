@@ -16,6 +16,7 @@ func TestStem(t *testing.T) {
 		{"undertrykt", "undertryk"},
 		{"bestemmelse", "bestem"},
 		{"friskt", "frisk"},
+		{"godt", "god"},
 	}
 
 	for _, test := range tests {

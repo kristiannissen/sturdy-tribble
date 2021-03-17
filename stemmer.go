@@ -62,7 +62,13 @@ func Stem(word string) string {
 	return undouble(constant_pairs(main_suffix(word)))
 }
 
+// FIXME: Will break on short words
 func undouble(word string) string {
+	l1 := word[len(word)-1:]
+	l2 := word[len(word)-2 : len(word)-1]
+	if l1 == l2 {
+		word = word[:len(word)-1]
+	}
 	return word
 }
 
