@@ -5,15 +5,17 @@ import (
 	str "strings"
 )
 
-type Suffix struct {
-	Word     string
+type Word struct {
+	Chars    string
 	Priority int
 }
 
-var Suffixes []Suffix
+var Suffixes []Word
+
+var StopWords []Word
 
 func init() {
-	Suffixes = []Suffix{
+	Suffixes = []Word{
 		{"hed", 1},
 		{"ethed", 1},
 		{"ered", 1},
@@ -47,6 +49,18 @@ func init() {
 		{"eret", 1},
 		{"else", 1},
 	}
+    SortSuffixes()
+
+    StopWords = []Word{
+        {"ad", 1},
+    }
+}
+
+func SortStopWords() {
+
+}
+
+func SortSuffixes() {
 	sort.SliceStable(Suffixes, func(i, j int) bool {
 		return Suffixes[i].Priority < Suffixes[j].Priority
 	})
@@ -60,8 +74,8 @@ func main_suffix(word string) string {
 	word = str.TrimSpace(str.ToLower(word))
 
 	for _, s := range Suffixes {
-		if str.HasSuffix(word, s.Word) {
-			word = str.TrimRight(word, s.Word)
+		if str.HasSuffix(word, s.Chars) {
+			word = str.TrimRight(word, s.Chars)
 		}
 	}
 	return word
