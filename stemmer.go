@@ -58,7 +58,7 @@ func SortSuffixes() {
 
 func Stem(word string) string {
 	word = str.TrimSpace(str.ToLower(word))
-	return undouble(constant_pairs(main_suffix(word)))
+	return other_suffix(undouble(constant_pairs(main_suffix(word))))
 }
 
 // FIXME: Will break on short words
@@ -90,6 +90,19 @@ func main_suffix(word string) string {
 	for _, s := range Suffixes {
 		if str.HasSuffix(word, s.Chars) {
 			word = str.TrimRight(word, s.Chars)
+		}
+	}
+	return word
+}
+
+func other_suffix(word string) string {
+	pairs := make(map[string]string)
+	pairs["els"] = "els"
+    pairs["ig"] = "ig"
+
+	for k, v := range pairs {
+		if str.HasSuffix(word, k) {
+			word = str.TrimRight(word, v)
 		}
 	}
 	return word
