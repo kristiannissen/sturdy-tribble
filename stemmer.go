@@ -1,6 +1,7 @@
 package stemmer
 
 import (
+	"log"
 	"sort"
 	str "strings"
 )
@@ -8,15 +9,16 @@ import (
 var Suffixes []string
 
 func init() {
+	log.Println("stem init")
 	Suffixes = []string{
 		"hed",
 		"ethed",
 		"ered",
 		"e",
 		"erede",
+		"ende",
 		"erende",
 		"ene",
-		"ende",
 		"erne",
 		"ere",
 		"en",
@@ -40,7 +42,6 @@ func init() {
 		"erets",
 		"et",
 		"eret",
-		"else",
 	}
 	SortSuffixes()
 }
@@ -58,10 +59,10 @@ func Stem(word string) string {
 
 // FIXME: Will break on short words
 func undouble(word string) string {
-	l1 := word[len(word)-1:]
-	l2 := word[len(word)-2 : len(word)-1]
-	if l1 == l2 {
-		word = word[:len(word)-1]
+	chars := str.Split(word, "")
+
+	if chars[len(chars)-2] == chars[len(chars)-1] {
+        word = str.TrimSuffix(word, chars[len(chars)-1])
 	}
 	return word
 }
@@ -85,8 +86,10 @@ func main_suffix(word string) string {
 	for _, s := range Suffixes {
 		if str.HasSuffix(word, s) {
 			word = str.TrimRight(word, s)
-		}
+		    break
+        }
 	}
+
 	return word
 }
 
@@ -98,6 +101,7 @@ func other_suffix(word string) string {
 	for k, v := range pairs {
 		if str.HasSuffix(word, k) {
 			word = str.TrimRight(word, v)
+            break
 		}
 	}
 	return word
