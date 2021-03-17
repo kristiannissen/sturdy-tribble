@@ -17,11 +17,11 @@ func init() {
 		{"hed", 1},
 		{"ethed", 1},
 		{"ered", 1},
-		{"ered", 1},
 		{"e", 2},
 		{"erede", 1},
 		{"erende", 1},
 		{"ene", 1},
+		{"ende", 1},
 		{"erne", 1},
 		{"ere", 1},
 		{"en", 2},
@@ -75,6 +75,8 @@ func constant_pairs(word string) string {
 	pairs := make(map[string]string)
 	pairs["kt"] = "t"
 	pairs["dt"] = "t"
+	pairs["gd"] = "d"
+	pairs["gt"] = "t"
 
 	for k, v := range pairs {
 		if str.HasSuffix(word, k) {
