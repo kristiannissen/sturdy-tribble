@@ -12,8 +12,6 @@ type Word struct {
 
 var Suffixes []Word
 
-var StopWords []Word
-
 func init() {
 	Suffixes = []Word{
 		{"hed", 1},
@@ -49,14 +47,7 @@ func init() {
 		{"eret", 1},
 		{"else", 1},
 	}
-    SortSuffixes()
-
-    StopWords = []Word{
-        {"ad", 1},
-    }
-}
-
-func SortStopWords() {
+	SortSuffixes()
 
 }
 
@@ -67,12 +58,27 @@ func SortSuffixes() {
 }
 
 func Stem(word string) string {
-	return main_suffix(word)
+	word = str.TrimSpace(str.ToLower(word))
+	return undouble(constant_pairs(main_suffix(word)))
+}
+
+func undouble(word string) string {
+	return word
+}
+
+func constant_pairs(word string) string {
+	pairs := make(map[string]string)
+	pairs["kt"] = "t"
+
+	for k, v := range pairs {
+		if str.HasSuffix(word, k) {
+			word = str.TrimRight(word, v)
+		}
+	}
+	return word
 }
 
 func main_suffix(word string) string {
-	word = str.TrimSpace(str.ToLower(word))
-
 	for _, s := range Suffixes {
 		if str.HasSuffix(word, s.Chars) {
 			word = str.TrimRight(word, s.Chars)
