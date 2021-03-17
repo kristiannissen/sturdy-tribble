@@ -48,7 +48,6 @@ func init() {
 		{"else", 1},
 	}
 	SortSuffixes()
-
 }
 
 func SortSuffixes() {
@@ -75,6 +74,7 @@ func undouble(word string) string {
 func constant_pairs(word string) string {
 	pairs := make(map[string]string)
 	pairs["kt"] = "t"
+	pairs["dt"] = "t"
 
 	for k, v := range pairs {
 		if str.HasSuffix(word, k) {
