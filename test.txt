@@ -1,0 +1,176 @@
+2021/03/18 07:59:26 stem init
+2021/03/18 07:59:26 Test: indtage
+2021/03/18 07:59:26 Main Suffix: indtag suffix: e
+2021/03/18 07:59:26 Test: indtagelse
+2021/03/18 07:59:26 Main Suffix: indtagels suffix: e
+2021/03/18 07:59:26 Other Suffix: indtag
+2021/03/18 07:59:26 Test: indtager
+2021/03/18 07:59:26 Main Suffix: indtag suffix: er
+2021/03/18 07:59:26 Test: indtages
+2021/03/18 07:59:26 Main Suffix: indtag suffix: es
+2021/03/18 07:59:26 Test: indtaget
+2021/03/18 07:59:26 Main Suffix: indtag suffix: et
+2021/03/18 07:59:26 Test: indtil
+2021/03/18 07:59:26 Test: indtog
+2021/03/18 07:59:26 Test: indtraf
+2021/03/18 07:59:26 Test: indtryk
+2021/03/18 07:59:26 Test: indtræde
+2021/03/18 07:59:26 Main Suffix: indtræd suffix: e
+2021/03/18 07:59:26 Test: indtræder
+2021/03/18 07:59:26 Main Suffix: indtræd suffix: er
+2021/03/18 07:59:26 Test: indtræffe
+2021/03/18 07:59:26 Main Suffix: indtræff suffix: e
+2021/03/18 07:59:26 Undouble: indtræf
+2021/03/18 07:59:26 Test: indtræffer
+2021/03/18 07:59:26 Main Suffix: indtræff suffix: er
+2021/03/18 07:59:26 Undouble: indtræf
+2021/03/18 07:59:26 Test: indtrængende
+2021/03/18 07:59:26 Main Suffix: indtræng suffix: ende
+2021/03/18 07:59:26 Test: indtægt
+2021/03/18 07:59:26 Constant Pairs: indtæg
+2021/03/18 07:59:26 Test: indtægter
+2021/03/18 07:59:26 Main Suffix: indtægt suffix: er
+2021/03/18 07:59:26 Constant Pairs: indtæg
+2021/03/18 07:59:26 Test: indvandrede
+2021/03/18 07:59:26 Main Suffix: indvandred suffix: e
+2021/03/18 07:59:26 Test: indvandret
+2021/03/18 07:59:26 Main Suffix: indvandr suffix: et
+2021/03/18 07:59:26 Test: indvender
+2021/03/18 07:59:26 Main Suffix: indvend suffix: er
+2021/03/18 07:59:26 Test: indvendig
+2021/03/18 07:59:26 Other Suffix: indvend
+2021/03/18 07:59:26 Test: indvendige
+2021/03/18 07:59:26 Main Suffix: indvendig suffix: e
+2021/03/18 07:59:26 Other Suffix: indvend
+2021/03/18 07:59:26 Test: indvendigt
+2021/03/18 07:59:26 Constant Pairs: indvendig
+2021/03/18 07:59:26 Other Suffix: indvend
+2021/03/18 07:59:26 Test: indvending
+2021/03/18 07:59:26 Test: indvendingerne
+2021/03/18 07:59:26 Main Suffix: indvending suffix: erne
+2021/03/18 07:59:26 Test: indvie
+2021/03/18 07:59:26 Main Suffix: indvi suffix: e
+2021/03/18 07:59:26 Test: indviede
+2021/03/18 07:59:26 Main Suffix: indvied suffix: e
+2021/03/18 07:59:26 Test: indvielse
+2021/03/18 07:59:26 Main Suffix: indviels suffix: e
+2021/03/18 07:59:26 Other Suffix: indvi
+2021/03/18 07:59:26 Test: indvielsen
+2021/03/18 07:59:26 Main Suffix: indviels suffix: en
+2021/03/18 07:59:26 Other Suffix: indvi
+2021/03/18 07:59:26 Test: indvielsesløfte
+2021/03/18 07:59:26 Main Suffix: indvielsesløft suffix: e
+2021/03/18 07:59:26 Test: indvielsestid
+2021/03/18 07:59:26 Test: indvier
+2021/03/18 07:59:26 Main Suffix: indvi suffix: er
+2021/03/18 07:59:26 Test: indvies
+2021/03/18 07:59:26 Main Suffix: indvi suffix: es
+2021/03/18 07:59:26 Test: indviet
+2021/03/18 07:59:26 Main Suffix: indvi suffix: et
+2021/03/18 07:59:26 Test: indvikle
+2021/03/18 07:59:26 Main Suffix: indvikl suffix: e
+2021/03/18 07:59:26 Test: indvikler
+2021/03/18 07:59:26 Main Suffix: indvikl suffix: er
+2021/03/18 07:59:26 Test: indvolde
+2021/03/18 07:59:26 Main Suffix: indvold suffix: e
+2021/03/18 07:59:26 Test: indvoldene
+2021/03/18 07:59:26 Main Suffix: indvold suffix: ene
+2021/03/18 07:59:26 Test: indvortes
+2021/03/18 07:59:26 Main Suffix: indvort suffix: es
+2021/03/18 07:59:26 Test: indånde
+2021/03/18 07:59:26 Main Suffix: indånd suffix: e
+2021/03/18 07:59:26 Test: indåndede
+2021/03/18 07:59:26 Main Suffix: indånded suffix: e
+2021/03/18 07:59:26 Test: underste
+2021/03/18 07:59:26 Main Suffix: underst suffix: e
+2021/03/18 07:59:26 Test: undersåtter
+2021/03/18 07:59:26 Main Suffix: undersått suffix: er
+2021/03/18 07:59:26 Undouble: undersåt
+2021/03/18 07:59:26 Test: undersåtters
+2021/03/18 07:59:26 Main Suffix: undersått suffix: ers
+2021/03/18 07:59:26 Undouble: undersåt
+2021/03/18 07:59:26 Test: undersøg
+2021/03/18 07:59:26 Test: undersøge
+2021/03/18 07:59:26 Main Suffix: undersøg suffix: e
+2021/03/18 07:59:26 Test: undersøgelse
+2021/03/18 07:59:26 Main Suffix: undersøgels suffix: e
+2021/03/18 07:59:26 Other Suffix: undersøg
+2021/03/18 07:59:26 Test: undersøgelsen
+2021/03/18 07:59:26 Main Suffix: undersøgels suffix: en
+2021/03/18 07:59:26 Other Suffix: undersøg
+2021/03/18 07:59:26 Test: undersøger
+2021/03/18 07:59:26 Main Suffix: undersøg suffix: er
+2021/03/18 07:59:26 Test: undersøgt
+2021/03/18 07:59:26 Constant Pairs: undersøg
+2021/03/18 07:59:26 Test: undersøgte
+2021/03/18 07:59:26 Main Suffix: undersøgt suffix: e
+2021/03/18 07:59:26 Constant Pairs: undersøg
+2021/03/18 07:59:26 Test: undertryk
+2021/03/18 07:59:26 Test: undertrykke
+2021/03/18 07:59:26 Main Suffix: undertrykk suffix: e
+2021/03/18 07:59:26 Undouble: undertryk
+2021/03/18 07:59:26 Test: undertrykkelse
+2021/03/18 07:59:26 Main Suffix: undertrykkels suffix: e
+2021/03/18 07:59:26 Other Suffix: undertrykk
+2021/03/18 07:59:26 Undouble: undertryk
+2021/03/18 07:59:26 Test: undertrykker
+2021/03/18 07:59:26 Main Suffix: undertrykk suffix: er
+2021/03/18 07:59:26 Undouble: undertryk
+2021/03/18 07:59:26 Test: undertrykkere
+2021/03/18 07:59:26 Main Suffix: undertrykk suffix: ere
+2021/03/18 07:59:26 Undouble: undertryk
+2021/03/18 07:59:26 Test: undertrykkeren
+2021/03/18 07:59:26 Main Suffix: undertrykk suffix: eren
+2021/03/18 07:59:26 Undouble: undertryk
+2021/03/18 07:59:26 Test: undertrykkerens
+2021/03/18 07:59:26 Main Suffix: undertrykk suffix: erens
+2021/03/18 07:59:26 Undouble: undertryk
+2021/03/18 07:59:26 Test: undertrykkeres
+2021/03/18 07:59:26 Main Suffix: undertrykk suffix: eres
+2021/03/18 07:59:26 Undouble: undertryk
+2021/03/18 07:59:26 Test: undertrykkes
+2021/03/18 07:59:26 Main Suffix: undertrykk suffix: es
+2021/03/18 07:59:26 Undouble: undertryk
+2021/03/18 07:59:26 Test: undertrykt
+2021/03/18 07:59:26 Constant Pairs: undertryk
+2021/03/18 07:59:26 Test: undertrykte
+2021/03/18 07:59:26 Main Suffix: undertrykt suffix: e
+2021/03/18 07:59:26 Constant Pairs: undertryk
+2021/03/18 07:59:26 Test: undertryktes
+2021/03/18 07:59:26 Main Suffix: undertrykt suffix: es
+2021/03/18 07:59:26 Constant Pairs: undertryk
+2021/03/18 07:59:26 Test: undertvang
+2021/03/18 07:59:26 Test: undertvunget
+2021/03/18 07:59:26 Main Suffix: undertvung suffix: et
+2021/03/18 07:59:26 Test: undertvungne
+2021/03/18 07:59:26 Main Suffix: undertvungn suffix: e
+2021/03/18 07:59:26 Test: undervejs
+2021/03/18 07:59:26 Test: underverdenen
+2021/03/18 07:59:26 Main Suffix: underverden suffix: en
+2021/03/18 07:59:26 Test: undervise
+2021/03/18 07:59:26 Main Suffix: undervis suffix: e
+2021/03/18 07:59:26 Test: underviser
+2021/03/18 07:59:26 Main Suffix: undervis suffix: er
+2021/03/18 07:59:26 Test: undervises
+2021/03/18 07:59:26 Main Suffix: undervis suffix: es
+2021/03/18 07:59:26 Test: undervisning
+2021/03/18 07:59:26 Test: undervisningen
+2021/03/18 07:59:26 Main Suffix: undervisning suffix: en
+2021/03/18 07:59:26 Test: undervist
+2021/03/18 07:59:26 Test: underviste
+2021/03/18 07:59:26 Main Suffix: undervist suffix: e
+2021/03/18 07:59:26 Test: underværk
+2021/03/18 07:59:26 Test: underværker
+2021/03/18 07:59:26 Main Suffix: underværk suffix: er
+2021/03/18 07:59:26 Test: undevise
+2021/03/18 07:59:26 Main Suffix: undevis suffix: e
+2021/03/18 07:59:26 Test: undeviste
+2021/03/18 07:59:26 Main Suffix: undevist suffix: e
+2021/03/18 07:59:26 Test: undfange
+2021/03/18 07:59:26 Main Suffix: undfang suffix: e
+2021/03/18 07:59:26 Test: undfanged
+--- FAIL: TestStem (0.24s)
+    stemmer_test.go:99: Got undervejs, want undervej, test undervejs
+FAIL
+exit status 1
+FAIL	stemmer	0.253s

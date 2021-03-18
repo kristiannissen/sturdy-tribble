@@ -87,7 +87,7 @@ func constant_pairs(word string) string {
 func main_suffix(word string) string {
 	for _, s := range Suffixes {
 		if str.HasSuffix(word, s) {
-			word = str.TrimRight(word, s)
+			word = str.TrimSuffix(word, s)
 			break
 		}
 	}
