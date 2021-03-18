@@ -1,3 +1,3 @@
-module stemmer
+module funwithwords
 
 go 1.15
