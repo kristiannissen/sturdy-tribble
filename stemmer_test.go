@@ -99,8 +99,6 @@ func TestStem(t *testing.T) {
 	for _, test := range tests {
 		got := Stem(test.got)
 
-		// log.Printf("Got %s want %s stem %s", test.got, test.want, got)
-
 		if test.want != got {
 			t.Errorf("Got %s, want %s, test %s", got, test.want, test.got)
 		}
