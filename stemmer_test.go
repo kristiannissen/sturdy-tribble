@@ -88,6 +88,12 @@ func TestStem(t *testing.T) {
 		{"undeviste", "undevist"},
 		{"undfange", "undfang"},
 		{"undfanged", "undfanged"},
+		{"ynkelig", "ynk"},
+		{"vovelig", "vov"},
+		{"voldelig", "vold"},
+		{"viselig", "vis"},
+		{"videnskabelig", "videnskab"},
+		{"uudtømmelig", "uudtøm"},
 	}
 
 	for _, test := range tests {
