@@ -1,20 +1,14 @@
 package stopword
 
 import (
-	"log"
-	"regexp"
 	str "strings"
 )
 
-var trans map[string]string
+var alphabet []byte
 
 var Words []string
 
 func init() {
-	log.Println("init")
-
-	trans = map[string]string{"æ": "ae", "ø": "oe", "å": "aa"}
-
 	Words = []string{
 		"ad",
 		"af",
@@ -279,6 +273,8 @@ func init() {
 		"været",
 		"øvrigt",
 	}
+
+	alphabet = []byte("abcdefghijklmnopqrstuvwzyxæøå0123456789")
 }
 
 func RemoveStopWords(text string) []string {
@@ -303,14 +299,29 @@ func isstopword(word string) bool {
 	return false
 }
 
+func contains(bytes []byte, b byte) bool {
+	for _, a := range bytes {
+		if a == b {
+			return true
+		}
+	}
+	return false
+}
+
 func Tokenize(text string) []string {
 	var words []string = str.Split(text, " ")
-	re := regexp.MustCompile(`[^a-z0-9]`)
 
 	for i, w := range words {
-		w = str.ToLower(w)
+		bytes := []byte(str.ToLower(w))
+		s := []byte{}
 
-		words[i] = re.ReplaceAllString(w, "")
+		for _, b := range bytes {
+			if contains(alphabet, b) {
+				s = append(s, b)
+			}
+		}
+
+		words[i] = string(s)
 	}
 	return words
 }

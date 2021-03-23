@@ -10,13 +10,14 @@ func TestRemoveStopWords(t *testing.T) {
 		got, want string
 	}{
 		{"Hiroshi Sasaki, der indtil torsdag", "hiroshi sasaki torsdag"},
+		{"Årsagen er, at han er kommet med nedsættende bemærkninger, øh sagde han", "årsagen kommet nedsættende bemærkninger øh sagde"},
 	}
 
 	for _, test := range table {
 		got := str.Join(RemoveStopWords(test.got), " ")
 
 		if got != test.want {
-			t.Fatalf("Got %s, want %s, test %s", got, test.want, test.got)
+			t.Fatalf("Got %s, want %s", got, test.want)
 		}
 	}
 }
