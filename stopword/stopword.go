@@ -303,22 +303,14 @@ func isstopword(word string) bool {
 	return false
 }
 
-func transliterate(word string) string {
-	f := word[0:1]
-	log.Println(f)
-	if k, ok := trans[f]; ok {
-		// Found trans
-		return "hello " + k
-	}
-	return word
-}
-
 func Tokenize(text string) []string {
 	var words []string = str.Split(text, " ")
 	re := regexp.MustCompile(`[^a-z0-9]`)
 
 	for i, w := range words {
-		words[i] = re.ReplaceAllString(str.ToLower(w), "")
+		w = str.ToLower(w)
+
+		words[i] = re.ReplaceAllString(w, "")
 	}
 	return words
 }
