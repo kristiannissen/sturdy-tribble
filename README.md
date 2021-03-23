@@ -5,3 +5,5 @@ Som Corona-hobby-projekt syntes jeg det kunne være sjovt at implementere en dan
 
 Jeg er dog ikke 100% enig i betragtningerne beskrevet i dokumentet, f.eks endelsen "else" er ganske almindelig forkommende i det danske sprog. Så hvorfor ikke tage den med i main_suffix?
 I stedet fjernes "e" og senere "els".
+
+Efterfølgende lavede jeg Stopword baseret på en liste med danske stop ord jeg fandt her på github.
