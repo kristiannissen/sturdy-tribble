@@ -1,19 +1,19 @@
 package main
 
 import (
+	"funwithwords/stopword"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
-	// "funwithwords/stopword"
 	// "funwithwords/stemmer"
 )
 
 const dataset string = "./dataset"
 
 func main() {
-	chn := make(chan map[string]string)
+	chn := make(chan map[string][]string)
 
 	files := []string{}
 
@@ -37,8 +37,8 @@ func main() {
 	go func(fp []string) {
 		for _, f := range fp {
 			text, _ := ioutil.ReadFile(f)
-			m := make(map[string]string)
-			m[f] = string(text)
+			m := make(map[string][]string)
+			m[f] = stopword.RemoveStopWords(string(text))
 
 			chn <- m
 		}
@@ -46,8 +46,8 @@ func main() {
 	}(files)
 
 	for f := range chn {
-		for k, _ := range f {
-			log.Println(k)
+		for k, v := range f {
+			log.Println(k, v)
 		}
 	}
 }
