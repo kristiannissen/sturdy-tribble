@@ -77,7 +77,7 @@ func consonant_pairs(word string) string {
 	for k, v := range pairs {
 		if str.HasSuffix(word, k) {
 			word = str.TrimRight(word, v)
-        }
+		}
 	}
 	return word
 }
@@ -86,40 +86,41 @@ func main_suffix(word string) string {
 	for _, s := range Suffixes {
 		if str.HasSuffix(word, s) {
 			word = str.TrimSuffix(word, s)
-            break
+			break
 		}
 	}
 	return word
 }
+
 // If the word ends in 'igst', remove the final st.
 // Search for the longest among the following suffixes,
 // and perform the action indicated
 func other_suffix(word string) string {
-    if str.HasSuffix(word, "igst") {
-        word = str.TrimSuffix(word, "st")
-    }
+	if str.HasSuffix(word, "igst") {
+		word = str.TrimSuffix(word, "st")
+	}
 
 	endings := []string{"elig", "lig", "els", "ig"}
 
 	for _, e := range endings {
 		if str.HasSuffix(word, e) {
 			word = str.TrimRight(word, e)
-            break
+			break
 		}
 	}
 	return word
 }
 
 func valid_ending(word string) string {
-    chars := str.Split("abcdfghjklmnoprtvyzå", "")
-    l := word[len(word)-2:len(word)-1]
+	chars := str.Split("abcdfghjklmnoprtvyzå", "")
+	l := word[len(word)-2 : len(word)-1]
 
-    if str.HasSuffix(word, "s") {
-        for _, c := range chars {
-            if l == c {
-                word = str.TrimSuffix(word, "s")
-            }
-        }
-    }
-    return word
+	if str.HasSuffix(word, "s") {
+		for _, c := range chars {
+			if l == c {
+				word = str.TrimSuffix(word, "s")
+			}
+		}
+	}
+	return word
 }

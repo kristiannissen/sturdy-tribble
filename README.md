@@ -7,3 +7,7 @@ Jeg er dog ikke 100% enig i betragtningerne beskrevet i dokumentet, f.eks endels
 I stedet fjernes "e" og senere "els".
 
 Efterfølgende lavede jeg Stopword baseret på en liste med danske stop ord jeg fandt her på github.
+
+### Tf-idf
+
+Det næste jeg vil forsøge mig med, er en term frequency-inverse document frequency løsning med udgangspunkt i http://www.tfidf.com/
