@@ -6,12 +6,14 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	// "funwithwords/stopword"
+	// "funwithwords/stemmer"
 )
 
 const dataset string = "./dataset"
 
 func main() {
-	chn := make(chan string)
+	chn := make(chan map[string]string)
 
 	files := []string{}
 
@@ -28,19 +30,24 @@ func main() {
 		return nil
 	})
 
+	if err != nil {
+		panic(err)
+	}
+
 	go func(fp []string) {
 		for _, f := range fp {
 			text, _ := ioutil.ReadFile(f)
-			chn <- string(text)
+			m := make(map[string]string)
+			m[f] = string(text)
+
+			chn <- m
 		}
 		close(chn)
 	}(files)
 
-	for fp := range chn {
-		log.Println(fp)
-	}
-
-	if err != nil {
-		panic(err)
+	for f := range chn {
+		for k, _ := range f {
+			log.Println(k)
+		}
 	}
 }

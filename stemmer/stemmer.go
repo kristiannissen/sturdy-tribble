@@ -57,12 +57,13 @@ func Stem(word string) string {
 	return word
 }
 
-// FIXME: Will break on short words
 func undouble(word string) string {
 	chars := str.Split(word, "")
 
-	if chars[len(chars)-2] == chars[len(chars)-1] {
-		word = str.TrimSuffix(word, chars[len(chars)-1])
+	if len(chars) > 2 {
+		if chars[len(chars)-2] == chars[len(chars)-1] {
+			word = str.TrimSuffix(word, chars[len(chars)-1])
+		}
 	}
 	return word
 }
@@ -112,13 +113,15 @@ func other_suffix(word string) string {
 }
 
 func valid_ending(word string) string {
-	chars := str.Split("abcdfghjklmnoprtvyzå", "")
-	l := word[len(word)-2 : len(word)-1]
+	if len(word) > 2 {
+		chars := str.Split("abcdfghjklmnoprtvyzå", "")
+		l := word[len(word)-2 : len(word)-1]
 
-	if str.HasSuffix(word, "s") {
-		for _, c := range chars {
-			if l == c {
-				word = str.TrimSuffix(word, "s")
+		if str.HasSuffix(word, "s") {
+			for _, c := range chars {
+				if l == c {
+					word = str.TrimSuffix(word, "s")
+				}
 			}
 		}
 	}
