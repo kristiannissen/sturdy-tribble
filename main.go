@@ -1,13 +1,13 @@
 package main
 
 import (
+	"funwithwords/stemmer"
 	"funwithwords/stopword"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
-	// "funwithwords/stemmer"
 )
 
 const dataset string = "./dataset"
@@ -47,7 +47,11 @@ func main() {
 
 	for f := range chn {
 		for k, v := range f {
-			log.Println(k, v)
+			log.Printf("Doc: %s n: %d", k, len(v))
+			for _, w := range v {
+				w = stemmer.Stem(w)
+				log.Print(w)
+			}
 		}
 	}
 }
