@@ -105,7 +105,7 @@ func other_suffix(word string) string {
 
 	for _, e := range endings {
 		if str.HasSuffix(word, e) {
-			word = str.TrimRight(word, e)
+			word = consonant_pairs(str.TrimRight(word, e))
 			break
 		}
 	}
