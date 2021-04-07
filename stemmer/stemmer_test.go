@@ -7,6 +7,7 @@ import (
 	// "strings"
 	"testing"
 )
+
 /**
  * Step 1
  * Search for the longest among the following suffixes in R1, and perform the action indicated.
@@ -41,46 +42,66 @@ func TestStep1(t *testing.T) {
 	}
 
 	for _, test := range table {
-        w := step1(test.got)
+		w := step1(test.got)
 
-        if w != test.want {
+		if w != test.want {
 			t.Errorf("Got %s, want %s", w, test.want)
 		}
 	}
 }
+
 /**
  * Test hasValidEnding
  */
 func TestHasValidEnding(t *testing.T) {
-    table := []struct{
-        got string
-        want bool
-    }{
-        {"abdas", true},
-        {"abdeels", true},
-        {"afvis", false},
-        {"agabus", false},
-    }
+	table := []struct {
+		got  string
+		want bool
+	}{
+		{"abdas", true},
+		{"abdeels", true},
+		{"afvis", false},
+		{"agabus", false},
+	}
 
-    for _, test := range table {
-        got := hasValidEnding(test.got)
+	for _, test := range table {
+		got := hasValidEnding(test.got)
 
-        if got != test.want {
-            t.Errorf("Got %v, want %v", got, test.want)
-        }
-    }
+		if got != test.want {
+			t.Errorf("Got %v, want %v", got, test.want)
+		}
+	}
 }
 
 func TestStep2(t *testing.T) {
+	table := []struct {
+		got, want string
+	}{
+		{"aflagd", "aflag"},
+		{"aflagt", "aflag"},
+	}
+
+	for _, test := range table {
+		got := step2(test.got)
+
+		if got != test.want {
+			t.Errorf("Got %s, want %s", got, test.want)
+		}
+	}
+}
+
+func TestStep3(t *testing.T) {
     table := []struct{
         got, want string
     }{
-        {"aflagd", "aflag"},
-        {"aflagt", "aflag"},
+        {"allermægtigst", "allermæg"},
+        {"almindelig", "almind"},
+        {"alvorlig", "alvor"},
+        {"løst", "løs"},
     }
 
     for _, test := range table {
-        got := step2(test.got)
+        got := step3(test.got)
 
         if got != test.want {
             t.Errorf("Got %s, want %s", got, test.want)

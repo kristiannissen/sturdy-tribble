@@ -3,7 +3,7 @@ package stemmer
 import (
 	// "sort"
 	str "strings"
-    // "log"
+	// "log"
 )
 
 var Suffixes []string
@@ -27,48 +27,80 @@ func step1(w string) string {
 	for _, suffix := range suffixes {
 		if str.HasSuffix(w, suffix) {
 			w = str.TrimSuffix(w, suffix)
-		    break
-        }
+			break
+		}
 	}
 
-    // s
-    // delete if preceded by a valid s-ending
-    if str.HasSuffix(w, "s") {
-        if hasValidEnding(w) == false {
-            w = str.TrimSuffix(w, "s")
-        }
-    }
+	// s
+	// delete if preceded by a valid s-ending
+	if str.HasSuffix(w, "s") {
+		if hasValidEnding(w) == false {
+			w = str.TrimSuffix(w, "s")
+		}
+	}
 
-    return w
+	return w
 }
+
 /**
  * Define a valid s-ending as one of
  * a   b   c   d   f   g   h   j   k   l   m   n   o   p   r   t   v   y   z   å
  */
- func hasValidEnding(w string) bool {
-    var letters []string = []string{"a", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "o", "p", "r", "t", "v", "y", "z", "å"}
-    var word string = w[0:len(w) - 1]
+func hasValidEnding(w string) bool {
+	var letters []string = []string{"a", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "o", "p", "r", "t", "v", "y", "z", "å"}
+	var word string = w[0 : len(w)-1]
 
-    for _, l := range letters {
-        if str.HasSuffix(word, l) {
-            return true
-        }
-    }
+	for _, l := range letters {
+		if str.HasSuffix(word, l) {
+			return true
+		}
+	}
 
-    return false
+	return false
 }
+
 /**
  * Step 2
  * Search for one of the following suffixes in R1, and if found delete the last letter
  * gd   dt   gt   kt
  */
 func step2(w string) string {
-    var endings []string = []string{"gd", "dt", "gt", "kt"}
+	var endings []string = []string{"gd", "dt", "gt", "kt"}
 
-    for _, e := range endings {
-        if str.HasSuffix(w, e) {
-            return w[0:len(w) - 1]
+	for _, e := range endings {
+		if str.HasSuffix(w, e) {
+			return w[0 : len(w)-1]
+		}
+	}
+
+	return w
+}
+
+/**
+ * Step3
+ */
+func step3(w string) string {
+    // If the word ends igst, remove the final st
+    if str.HasSuffix(w, "igst") {
+        w = str.TrimSuffix(w, "st")
+    }
+
+    // Search for the longest among the following suffixes in R1, and perform the action indicated
+    // ig   lig   elig   els
+    //      delete, and then repeat step 2
+    var suffixes []string = []string{"elig", "lig", "ig", "els"}
+
+    for _, suffix := range suffixes {
+        if str.HasSuffix(w, suffix) {
+            w = str.TrimSuffix(w, suffix)
+            w = step2(w)
         }
+    }
+
+    // løst
+    // replace with løs
+    if str.HasSuffix(w, "løst") {
+        w = w[0:len(w) - 1]
     }
 
     return w
