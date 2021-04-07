@@ -91,22 +91,43 @@ func TestStep2(t *testing.T) {
 }
 
 func TestStep3(t *testing.T) {
-    table := []struct{
-        got, want string
-    }{
-        {"allermægtigst", "allermæg"},
-        {"almindelig", "almind"},
-        {"alvorlig", "alvor"},
-        {"løst", "løs"},
-    }
+	table := []struct {
+		got, want string
+	}{
+		{"allermægtigst", "allermæg"},
+		{"almindelig", "almind"},
+		{"alvorlig", "alvor"},
+		{"løst", "løs"},
+	}
 
-    for _, test := range table {
-        got := step3(test.got)
+	for _, test := range table {
+		got := step3(test.got)
 
-        if got != test.want {
-            t.Errorf("Got %s, want %s", got, test.want)
-        }
-    }
+		if got != test.want {
+			t.Errorf("Got %s, want %s", got, test.want)
+		}
+	}
+}
+
+func TestSearchInR1(t *testing.T) {
+	table := []struct {
+		got, want string
+		exist     bool
+	}{
+		{"hingst", "t", true},
+		{"hello", "llo", false},
+		{"kitty", "sy", false},
+		{"pussy", "na", false},
+		{"pussies", "s", true},
+	}
+
+	for _, test := range table {
+		b := searchInWord(test.got, test.want)
+
+		if b != test.exist {
+			t.Errorf("Got %s, want %s, %v", test.got, test.want, b)
+		}
+	}
 }
 
 func TestStem(t *testing.T) {

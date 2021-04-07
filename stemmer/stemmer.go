@@ -6,15 +6,24 @@ import (
 	// "log"
 )
 
-var Suffixes []string
+var r1 int
 
 func init() {
+	r1 = 3
 }
 
 func Stem(word string) string {
 	word = str.TrimSpace(str.ToLower(word))
 
 	return word
+}
+
+/**
+ * Helper to search within substring
+ */
+func searchInR1(w string, k string) bool {
+	var word string = w[r1:]
+	return str.HasSuffix(word, k)
 }
 
 /**
@@ -80,28 +89,28 @@ func step2(w string) string {
  * Step3
  */
 func step3(w string) string {
-    // If the word ends igst, remove the final st
-    if str.HasSuffix(w, "igst") {
-        w = str.TrimSuffix(w, "st")
-    }
+	// If the word ends igst, remove the final st
+	if str.HasSuffix(w, "igst") {
+		w = str.TrimSuffix(w, "st")
+	}
 
-    // Search for the longest among the following suffixes in R1, and perform the action indicated
-    // ig   lig   elig   els
-    //      delete, and then repeat step 2
-    var suffixes []string = []string{"elig", "lig", "ig", "els"}
+	// Search for the longest among the following suffixes in R1, and perform the action indicated
+	// ig   lig   elig   els
+	//      delete, and then repeat step 2
+	var suffixes []string = []string{"elig", "lig", "ig", "els"}
 
-    for _, suffix := range suffixes {
-        if str.HasSuffix(w, suffix) {
-            w = str.TrimSuffix(w, suffix)
-            w = step2(w)
-        }
-    }
+	for _, suffix := range suffixes {
+		if str.HasSuffix(w, suffix) {
+			w = str.TrimSuffix(w, suffix)
+			w = step2(w)
+		}
+	}
 
-    // løst
-    // replace with løs
-    if str.HasSuffix(w, "løst") {
-        w = w[0:len(w) - 1]
-    }
+	// løst
+	// replace with løs
+	if str.HasSuffix(w, "løst") {
+		w = w[0 : len(w)-1]
+	}
 
-    return w
+	return w
 }
