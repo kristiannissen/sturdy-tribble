@@ -102,7 +102,7 @@ func step3(w string) string {
 	var suffixes []string = []string{"elig", "lig", "ig", "els"}
 
 	for _, suffix := range suffixes {
-		if str.HasSuffix(w, suffix) {
+		if searchInR1(w, suffix) {
 			w = str.TrimSuffix(w, suffix)
 			w = step2(w)
 		}
