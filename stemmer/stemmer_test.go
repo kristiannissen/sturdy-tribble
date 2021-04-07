@@ -71,6 +71,23 @@ func TestHasValidEnding(t *testing.T) {
     }
 }
 
+func TestStep2(t *testing.T) {
+    table := []struct{
+        got, want string
+    }{
+        {"aflagd", "aflag"},
+        {"aflagt", "aflag"},
+    }
+
+    for _, test := range table {
+        got := step2(test.got)
+
+        if got != test.want {
+            t.Errorf("Got %s, want %s", got, test.want)
+        }
+    }
+}
+
 func TestStem(t *testing.T) {
 	t.Skip()
 }

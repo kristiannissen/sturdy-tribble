@@ -57,3 +57,19 @@ func step1(w string) string {
 
     return false
 }
+/**
+ * Step 2
+ * Search for one of the following suffixes in R1, and if found delete the last letter
+ * gd   dt   gt   kt
+ */
+func step2(w string) string {
+    var endings []string = []string{"gd", "dt", "gt", "kt"}
+
+    for _, e := range endings {
+        if str.HasSuffix(w, e) {
+            return w[0:len(w) - 1]
+        }
+    }
+
+    return w
+}
