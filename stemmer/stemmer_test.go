@@ -68,7 +68,7 @@ func TestHasValidEnding(t *testing.T) {
 		got := hasValidEnding(test.got)
 
 		if got != test.want {
-			t.Errorf("Got %v, want %v", got, test.want)
+			t.Errorf("Test: %s. Got %v, want %v", test.got, got, test.want)
 		}
 	}
 }
@@ -85,7 +85,7 @@ func TestStep2(t *testing.T) {
 		got := step2(test.got)
 
 		if got != test.want {
-			t.Errorf("Got %s, want %s", got, test.want)
+			t.Errorf("Test: %s. Got %s, want %s", test.got, got, test.want)
 		}
 	}
 }
@@ -122,7 +122,7 @@ func TestSearchInR1(t *testing.T) {
 	}
 
 	for _, test := range table {
-		b := searchInWord(test.got, test.want)
+		b := searchInR1(test.got, test.want)
 
 		if b != test.exist {
 			t.Errorf("Got %s, want %s, %v", test.got, test.want, b)

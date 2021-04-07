@@ -77,8 +77,10 @@ func step2(w string) string {
 	var endings []string = []string{"gd", "dt", "gt", "kt"}
 
 	for _, e := range endings {
-		if str.HasSuffix(w, e) {
-			return w[0 : len(w)-1]
+		if searchInR1(w, e) {
+			if str.HasSuffix(w, e) {
+				return w[0 : len(w)-1]
+			}
 		}
 	}
 
