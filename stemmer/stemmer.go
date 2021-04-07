@@ -7,13 +7,20 @@ import (
 )
 
 var r1 int
+var vowels []string
 
 func init() {
 	r1 = 3
+	vowels = []string{"a", "e", "i", "o", "u", "y", "æ", "å", "ø"}
 }
 
 func Stem(word string) string {
 	word = str.TrimSpace(str.ToLower(word))
+
+	word = step1(word)
+	word = step2(word)
+	word = step3(word)
+	word = step4(word)
 
 	return word
 }
@@ -22,8 +29,17 @@ func Stem(word string) string {
  * Helper to search within substring
  */
 func searchInR1(w string, k string) bool {
+	// Avoid slice bounds out of range
+	if len(w) < r1 {
+		return false
+	}
+
 	var word string = w[r1:]
-	return str.HasSuffix(word, k)
+	if len(word) > r1 {
+		return str.HasSuffix(word, k)
+	}
+
+	return false
 }
 
 /**
@@ -34,7 +50,7 @@ func step1(w string) string {
 	var suffixes []string = []string{"erendes", "erende", "hedens", "erede", "ethed", "heden", "endes", "erets", "heder", "ernes", "erens", "ered", "ende", "erne", "eres", "eren", "eret", "erer", "enes", "heds", "ens", "ene", "ere", "ers", "ets", "hed", "es", "et", "er", "en", "e"}
 
 	for _, suffix := range suffixes {
-		if str.HasSuffix(w, suffix) {
+		if searchInR1(w, suffix) {
 			w = str.TrimSuffix(w, suffix)
 			break
 		}
@@ -42,8 +58,8 @@ func step1(w string) string {
 
 	// s
 	// delete if preceded by a valid s-ending
-	if str.HasSuffix(w, "s") {
-		if hasValidEnding(w) == false {
+	if searchInR1(w, "s") {
+		if hasValidEnding(w) == true {
 			w = str.TrimSuffix(w, "s")
 		}
 	}
@@ -78,9 +94,7 @@ func step2(w string) string {
 
 	for _, e := range endings {
 		if searchInR1(w, e) {
-			if str.HasSuffix(w, e) {
-				return w[0 : len(w)-1]
-			}
+			return w[0 : len(w)-1]
 		}
 	}
 
@@ -112,6 +126,30 @@ func step3(w string) string {
 	// replace with løs
 	if str.HasSuffix(w, "løst") {
 		w = w[0 : len(w)-1]
+	}
+
+	return w
+}
+
+/**
+ * Step 4: undouble
+ * If the word ends with double consonant in R1, remove one of the consonants
+ */
+func step4(w string) string {
+	ln := len(w)
+	if ln < r1 {
+		return w
+	}
+
+	lastLetter := w[len(w)-1 : len(w)]
+	for _, letter := range vowels {
+		if lastLetter == letter {
+			return w
+		}
+	}
+	beforeLastLetter := w[len(w)-2 : len(w)-1]
+	if lastLetter == beforeLastLetter {
+		return w[0 : len(w)-1]
 	}
 
 	return w

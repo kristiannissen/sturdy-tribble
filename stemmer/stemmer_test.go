@@ -1,10 +1,10 @@
 package stemmer
 
 import (
-	// "bufio"
-	// "log"
-	// "os"
-	// "strings"
+	"bufio"
+	"log"
+	"os"
+	"strings"
 	"testing"
 )
 
@@ -130,6 +130,42 @@ func TestSearchInR1(t *testing.T) {
 	}
 }
 
+func TestStep4(t *testing.T) {
+	table := []struct {
+		got, want string
+	}{
+		{"ødelægg", "ødelæg"},
+		{"øjeblikk", "øjeblik"},
+	}
+
+	for _, test := range table {
+		got := step4(test.got)
+
+		if got != test.want {
+			t.Errorf("Test %s. Got %s, want %s", test.got, got, test.want)
+		}
+	}
+}
+
 func TestStem(t *testing.T) {
-	t.Skip()
+	file, err := os.Open("./files/da.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		test := strings.Fields(scanner.Text())
+		got := Stem(strings.TrimSpace(test[0]))
+		want := strings.TrimSpace(test[1])
+
+		if got != want {
+			t.Errorf("Got %s, want %s", got, want)
+		}
+	}
+
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
 }
