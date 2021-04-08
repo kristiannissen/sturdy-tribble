@@ -8,6 +8,31 @@ import (
 	"testing"
 )
 
+var words []struct {
+	got, want string
+}
+
+func init() {
+	file, err := os.Open("./files/da.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		test := strings.Fields(scanner.Text())
+		got := strings.TrimSpace(test[0])
+		want := strings.TrimSpace(test[1])
+
+		s := struct {
+			got, want string
+		}{got, want}
+
+		words = append(words, s)
+	}
+}
+
 /**
  * Step 1
  * Search for the longest among the following suffixes in R1, and perform the action indicated.
@@ -161,7 +186,7 @@ func TestStem(t *testing.T) {
 		want := strings.TrimSpace(test[1])
 
 		if got != want {
-			t.Errorf("Got %s, want %s", got, want)
+			t.Errorf("Test %s. Got %s, want %s", test[0], got, want)
 		}
 	}
 

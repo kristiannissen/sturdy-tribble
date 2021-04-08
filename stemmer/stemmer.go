@@ -18,9 +18,9 @@ func Stem(word string) string {
 	word = str.TrimSpace(str.ToLower(word))
 
 	word = step1(word)
-	word = step2(word)
-	word = step3(word)
-	word = step4(word)
+	// word = step2(word)
+	// word = step3(word)
+	// word = step4(word)
 
 	return word
 }
