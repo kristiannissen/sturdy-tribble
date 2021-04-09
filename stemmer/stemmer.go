@@ -1,7 +1,6 @@
 package stemmer
 
 import (
-	// "sort"
 	str "strings"
 	// "log"
 )
@@ -35,11 +34,11 @@ func searchInR1(w string, k string) bool {
 	}
 
 	var word string = w[r1:]
-	if len(word) > r1 {
-		return str.HasSuffix(word, k)
-	}
+    if (len(word) + len(k)) == r1 {
+        return str.HasSuffix(word, k)
+    }
 
-	return false
+    return false
 }
 
 /**
@@ -51,8 +50,9 @@ func step1(w string) string {
 
 	for _, suffix := range suffixes {
 		if searchInR1(w, suffix) {
-			w = str.TrimSuffix(w, suffix)
-			break
+            i := str.LastIndex(w, suffix)
+            w = w[:i]
+            break
 		}
 	}
 

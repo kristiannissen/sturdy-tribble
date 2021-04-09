@@ -8,10 +8,12 @@ import (
 	"testing"
 )
 
-var words []struct {
+var testTable []struct {
 	got, want string
 }
-
+/**
+ * Setup
+ */
 func init() {
 	file, err := os.Open("./files/da.txt")
 	if err != nil {
@@ -29,7 +31,7 @@ func init() {
 			got, want string
 		}{got, want}
 
-		words = append(words, s)
+		testTable = append(testTable, s)
 	}
 }
 
@@ -38,41 +40,19 @@ func init() {
  * Search for the longest among the following suffixes in R1, and perform the action indicated.
  */
 func TestStep1(t *testing.T) {
-	table := []struct {
-		got, want string
-	}{
-		{"herlighedens", "herlig"},
-		{"afleverede", "aflev"},
-		{"ondsindethed", "ondsind"},
-		{"oprigtigheden", "oprigtig"},
-		{"seendes", "seend"},
-		{"skyldofferets", "skyldoff"},
-		{"stridigheder", "stridig"},
-		{"syndernes", "synd"},
-		{"søsterens", "søst"},
-		{"tilbered", "tilb"},
-		{"tilflugtsbyerne", "tilflugtsby"},
-		{"tjeneres", "tjen"},
-		{"tolderen", "told"},
-		{"udleveret", "udlev"},
-		{"vognenes", "vogn"},
-		{"yppigheds", "yppig"},
-		{"baalshøjene", "baalshøj"},
-		{"evangeliets", "evangeli"},
-		{"evighed", "evig"},
-		{"evighedernes", "evighed"},
-		{"evnet", "evn"},
-		{"ezer", "ezer"},
-		{"ezraiten", "ezrait"},
-	}
+	var suffixes []string = []string{"erendes", "erende", "hedens", "erede", "ethed", "heden", "endes", "erets", "heder", "ernes", "erens", "ered", "ende", "erne", "eres", "eren", "eret", "erer", "enes", "heds", "ens", "ene", "ere", "ers", "ets", "hed", "es", "et", "er", "en", "e"}
 
-	for _, test := range table {
-		w := step1(test.got)
+    for _, test := range testTable {
+        for _, suffix := range suffixes {
+            if strings.HasSuffix(test.got, suffix) {
+                got := step1(test.got)
 
-		if w != test.want {
-			t.Errorf("Got %s, want %s", w, test.want)
-		}
-	}
+                if got != test.want {
+                    t.Errorf("Test %s. Got %s want %s", test.got, got, test.want)
+                }
+            }
+        }
+    }
 }
 
 /**
@@ -144,6 +124,7 @@ func TestSearchInR1(t *testing.T) {
 		{"kitty", "sy", false},
 		{"pussy", "na", false},
 		{"pussies", "s", true},
+		{"øvet", "et", false},
 	}
 
 	for _, test := range table {
