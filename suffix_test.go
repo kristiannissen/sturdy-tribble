@@ -20,7 +20,7 @@ func TestIsValidSEnding(t *testing.T) {
 	}
 }
 
-func TestFindLongestSuffix(t *testing.T) {
+func TestMainSuffix(t *testing.T) {
 	tests := []struct {
 		word, ending string
 		res          bool
@@ -33,7 +33,7 @@ func TestFindLongestSuffix(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		e, _ := FindLongestSuffix(test.word)
+		e, _ := mainSuffix(test.word)
 		if e != test.ending {
 			t.Fatalf("Test %s, want %s got %s", test.word, test.ending, e)
 		}

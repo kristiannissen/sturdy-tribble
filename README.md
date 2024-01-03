@@ -8,6 +8,8 @@ I stedet fjernes "e" og senere "els".
 
 Efterfølgende lavede jeg Stopword baseret på en liste med danske stop ord jeg fandt her på github.
 
+TODO: Brug funktions navne: main_suffix, consonant_pair, other_suffix, undouble
+
 ### Tf-idf
 
 Det næste jeg vil forsøge mig med, er en term frequency-inverse document frequency løsning med udgangspunkt i http://www.tfidf.com/

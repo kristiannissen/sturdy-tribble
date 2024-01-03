@@ -30,7 +30,7 @@ func IsValidSEnding(w string) bool {
 }
 
 // Finds erendes in studerendes
-func FindLongestSuffix(w string) (string, bool) {
+func mainSuffix(w string) (string, bool) {
 	endings := []string{
 		"erendes",
 		"erende",
@@ -43,6 +43,7 @@ func FindLongestSuffix(w string) (string, bool) {
 		"heder",
 		"ernes",
 		"erens",
+		"else",
 		"ered",
 		"ende",
 		"erne",
