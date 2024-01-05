@@ -9,7 +9,7 @@ func TestStem(t *testing.T) {
 	}{
 		{"uvederhæftighed", "uvederhæftig"}, // hed
 		{"utryghed", "utryg"},               // hed
-		{"tillukkethed", "tillukket"},       // ethed
+		{"tillukkethed", "tilluk"},          // ethed
 		{"tilpassethed", "tilpas"},          // ethed
 		{"astringered", "astring"},          // ered
 		{"zonegrænse", "zonegræns"},         // e

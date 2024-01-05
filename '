@@ -34,14 +34,11 @@ func mainSuffix(w string) (string, bool) {
 	var b bool = false
 	endings := []string{
 		"ethed",
-		"erede",
 		"ende",
-		"ered",
 		"ene",
 		"hed",
 		"ede",
 		"et",
-		"e",
 	}
 	for _, e := range endings {
 		if strings.HasSuffix(strings.ToLower(w), e) && len(w) > len(e) {
