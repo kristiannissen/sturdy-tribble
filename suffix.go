@@ -31,48 +31,17 @@ func IsValidSEnding(w string) bool {
 
 // Finds erendes in studerendes
 func mainSuffix(w string) (string, bool) {
+	var b bool = false
 	endings := []string{
-		"erendes",
-		"erende",
-		"hedens",
-		"erede",
-		"ethed",
-		"heden",
-		"endes",
-		"erets",
-		"heder",
-		"ernes",
-		"erens",
-		"else",
-		"ered",
 		"ende",
-		"erne",
-		"eres",
-		"eren",
-		"eret",
-		"erer",
-		"enes",
-		"heds",
-		"ens",
 		"ene",
-		"ere",
-		"ers",
-		"ets",
 		"hed",
-		"es",
-		"et",
-		"er",
-		"en",
-		"e",
-	}
-	// Special case
-	if strings.ToLower(w) == "hedens" {
-		return "", false
+		"ede",
 	}
 	for _, e := range endings {
 		if strings.HasSuffix(strings.ToLower(w), e) && len(w) > len(e) {
-			return e, true
+			w, b = strings.CutSuffix(w, e)
 		}
 	}
-	return "", false
+	return w, b
 }

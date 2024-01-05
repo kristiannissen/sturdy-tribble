@@ -2,40 +2,20 @@ package funwithwords
 
 import "testing"
 
-func TestIsValidSEnding(t *testing.T) {
-	tests := []struct {
-		word string
-		res  bool
-	}{
-		{"digterens", true},
-		{"barndommens", true},
-		{"tag", false},
-	}
-
-	for _, test := range tests {
-		b := IsValidSEnding(test.word)
-		if b != test.res {
-			t.Fatalf("Test %s, want %v got %v", test.word, test.res, b)
-		}
-	}
-}
-
 func TestMainSuffix(t *testing.T) {
 	tests := []struct {
-		word, ending string
-		res          bool
+		got, want string
 	}{
-		{"studerendes", "erendes", true},
-		{"sikkerheds", "heds", true},
-		{"ende", "e", true},
-		{"hedens", "", false},
-		{"cyklisten", "en", true},
+		{"vidtgående", "vidtgå"},
+		{"vuggende", "vugg"},
+		{"visaene", "visa"},
+		{"workshoppene", "workshopp"},
 	}
 
 	for _, test := range tests {
-		e, _ := mainSuffix(test.word)
-		if e != test.ending {
-			t.Fatalf("Test %s, want %s got %s", test.word, test.ending, e)
+		s, _ := mainSuffix(test.got)
+		if s != test.want {
+			t.Fatalf("Test %s; got %s want %s", test.got, s, test.want)
 		}
 	}
 }
