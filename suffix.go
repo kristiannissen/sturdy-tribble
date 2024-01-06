@@ -1,6 +1,8 @@
 package funwithwords
 
-import "strings"
+import (
+	"strings"
+)
 
 func IsValidFuffix(w string) bool {
 	return false
@@ -33,19 +35,42 @@ func IsValidSEnding(w string) bool {
 func mainSuffix(w string) (string, bool) {
 	var b bool = false
 	endings := []string{
+		"erendes",
+		"hedens",
+		"ernes",
 		"ethed",
 		"erede",
+		"heden",
+		"erens",
+		"heder",
+		"erets",
+		"endes",
 		"ende",
+		"enes",
+		"erer",
 		"ered",
+		"heds",
+		"erne",
+		"eren",
+		"eres",
+		"eret",
+		"ens",
+		"ers",
+		"ets",
 		"ene",
 		"hed",
 		"ede",
+		"ere",
 		"et",
+		"en",
+		"er",
+		"es",
 		"e",
 	}
 	for _, e := range endings {
-		if strings.HasSuffix(strings.ToLower(w), e) && len(w) > len(e) {
+		if strings.HasSuffix(w, e) {
 			w, b = strings.CutSuffix(w, e)
+			break
 		}
 	}
 	return w, b
