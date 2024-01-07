@@ -75,3 +75,24 @@ func mainSuffix(w string) (string, bool) {
 	}
 	return w, b
 }
+
+// Other suffix
+func otherSuffix(w string) (string, bool) {
+	endings := []string{
+		"elig",
+		"lig",
+		"els",
+		"ig",
+	}
+	if strings.HasSuffix(w, "igst") {
+		// remove final st
+		w, _ := strings.CutSuffix(w, "st")
+		// Find longest ending and cut
+		for _, e := range endings {
+			if strings.HasSuffix(w, e) {
+				return strings.CutSuffix(w, e)
+			}
+		}
+	}
+	return w, false
+}

@@ -1,6 +1,8 @@
 package funwithwords
 
-import "strings"
+import (
+	"strings"
+)
 
 func undouble(w string) (string, bool) {
 	// Split string into chars

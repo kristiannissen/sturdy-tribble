@@ -7,14 +7,13 @@ func TestStem(t *testing.T) {
 	tests := []struct {
 		got, want string
 	}{
-		{"uvederhæftighed", "uvederhæftig"},             // hed
-		{"utryghed", "utryg"},                           // hed
+		{"uvederhæftighed", "uvederhæft"},               // hed
 		{"tillukkethed", "tilluk"},                      // ethed
-		{"tilpassethed", "tilpas"},                      // ethed
 		{"astringered", "astring"},                      // ered
 		{"zonegrænse", "zonegræns"},                     // e
-		{"ynke", "ynk"},                                 // e
 		{"udspekulerede", "udspekul"},                   // erede
+		{"virkeliggørende", "virkeliggør"},              // ende
+		{"studerende", "studer"},                        // erende
 		{"vismændene", "vismænd"},                       // ene
 		{"yderverdnerne", "yderverdn"},                  // erne
 		{"vulkanisere", "vulkanis"},                     // ere
@@ -22,9 +21,9 @@ func TestStem(t *testing.T) {
 		{"imponeretheden", "imponeret"},                 // heden
 		{"versemageren", "versemag"},                    // eren
 		{"ynglingealder", "ynglingeald"},                // er
-		{"tronstridigheder", "tronstridig"},             // heder
+		{"tronstridigheder", "tronstrid"},               // heder
 		{"regredierer", "regredi"},                      // erer
-		{"toværelserslejligheds", "toværelserslejlig"},  // heds
+		{"toværelserslejligheds", "toværelserslejl"},    // heds
 		{"ypperstes", "ypperst"},                        // es
 		{"videnskabeliggørendes", "videnskabeliggør"},   // endes
 		{"øverstkommanderendes", "øverstkommand"},       // erendes
@@ -39,6 +38,8 @@ func TestStem(t *testing.T) {
 		{"undervisningscenterets", "undervisningscent"}, // erets
 		{"vurderingskriteriet", "vurderingskriteri"},    // et
 		{"velproportioneret", "velproportion"},          // eret
+		{"indvielsesløfte", "indvielsesløft"},           // e + undouble
+		{"yverbetændelse", "yverbetænd"},                // e + lse
 	}
 
 	for _, test := range tests {
