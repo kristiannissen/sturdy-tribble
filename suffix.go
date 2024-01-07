@@ -8,7 +8,7 @@ func IsValidFuffix(w string) bool {
 	return false
 }
 
-func IsValidSEnding(w string) bool {
+func isValidSEnding(w string) bool {
 	s := w[len(w)-2:] // Gives us ns from Digterens
 	e := []string{
 		"es",
@@ -67,10 +67,17 @@ func mainSuffix(w string) (string, bool) {
 		"es",
 		"e",
 	}
+	// Check main suffix
 	for _, e := range endings {
 		if strings.HasSuffix(w, e) {
 			w, b = strings.CutSuffix(w, e)
 			break
+		}
+	}
+	// S ending
+	if strings.HasSuffix(w, "s") {
+		if isValidSEnding(w) == false {
+			return w[:len(w)-1], true
 		}
 	}
 	return w, b
